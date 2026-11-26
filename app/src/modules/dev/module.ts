@@ -18,6 +18,8 @@ export const DevModule: Module = {
 		CleanDatabasePrefix,
 		CleanPrefix,
 		DeleteManyPrefix,
+		DisconnectPrefix,
+		DragPrefix,
 		RandomColorPrefix,
 		SetStatusPrefix,
 		TimeoutPrefix,
