@@ -5,6 +5,7 @@ mod shard;
 
 use std::{collections::HashMap, sync::Arc};
 
+use tracing_subscriber::EnvFilter;
 use twilight_gateway::{Intents, Shard, ShardId};
 use twilight_http::Client;
 use twilight_model::id::{Id, marker::ApplicationMarker};
@@ -28,6 +29,12 @@ async fn main() -> Result<()> {
         .expect("[RustLS] (Ring) couldnt install");
 
     let env = environment::Environment::load()?;
+    tracing_subscriber::fmt()
+        .with_env_filter(
+            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info")),
+        )
+        .init();
+
     let intents = Intents::GUILD_MESSAGES | Intents::DIRECT_MESSAGES | Intents::MESSAGE_CONTENT;
     let shard = Shard::new(ShardId::ONE, env.discord_bot_token.clone(), intents);
     let http = Arc::new(Client::new(env.discord_bot_token));
