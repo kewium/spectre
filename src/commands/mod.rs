@@ -230,7 +230,16 @@ pub async fn handle_application_command(
                 interaction: *interaction.clone(),
             };
 
-            execute(context).await?;
+            if let Err(error) = execute(context).await {
+                tracing::error!(
+                    command = %command.name,
+                    kind = ?command.kind,
+                    guild_id = ?interaction.guild_id,
+                    user_id = ?interaction.author_id(),
+                    %error,
+                    "command failed"
+                );
+            }
         }
         _ => return Ok(()),
     };

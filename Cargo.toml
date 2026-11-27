@@ -8,6 +8,8 @@ license = "MIT"
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "sync"] }
 rustls = { version = "0.23.46", features = ["ring"] }
 dotenvy = "0.15.7"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
 
 twilight-cache-inmemory = "0.18.0"
 twilight-gateway = "0.18.0"
