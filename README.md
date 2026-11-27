@@ -12,8 +12,6 @@ Custom Discord application designed for stuff I need.
 
 ## Installation
 
-Steps to install your project locally:
-
 ```bash
 git clone https://github.com/kewwie/spectre.git
 cd spectre
@@ -27,9 +25,6 @@ cd spectre
 -   Persist Roles and Nicknames
 
 ## Contributing
-
-State if you are open to contributions and what your requirements are for accepting them.
-
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
@@ -37,11 +32,7 @@ State if you are open to contributions and what your requirements are for accept
 5. Open a Pull Request
 
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
-
-Support - [Discord](https://discord.gg/JKbtSTCmbz)
-
-Project Link: [github.com/Kewwie/Spectre](https://github.com/Kewwie/Spectre)
+Project Link: [github.com/Kewium/Spectre](https://github.com/Kewium/Spectre)
