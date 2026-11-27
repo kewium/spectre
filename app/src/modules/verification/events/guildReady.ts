@@ -18,10 +18,8 @@ export const GuildReady: Event = {
 		});
 		for (var oldPendingMessage of oldPendingMessages) {
 			let member = await guild.members.fetch(oldPendingMessage.userId).catch(() => {});
-			let pendingChannel = (await guild.channels.fetch(
-				verConf.pendingChannel
-			)) as TextChannel;
-			let pendingMessage = await pendingChannel.messages
+			let pendingChannel = guild.channels.cache.get(verConf.pendingChannel) as TextChannel;
+			let pendingMessage = await pendingChannel?.messages
 				.fetch(oldPendingMessage.messageId)
 				.catch(() => {});
 			if (!pendingMessage || !member) {

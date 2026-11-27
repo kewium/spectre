@@ -62,7 +62,7 @@ export const GuildReady: Event = {
 			if (member.user.bot) continue;
 			if (
 				perConf.requiredRoles.length > 0 &&
-				!hasRequiredRole(client, member.guild.id, member.id)
+				!(await hasRequiredRole(client, member.guild.id, member.id))
 			)
 				continue;
 			await saveNewUserData(client, member, perConf);
@@ -136,7 +136,7 @@ async function updateUser(
 	);
 	if (userPersistRoles.length === 0) return;
 	for (var role of userPersistRoles) {
-		if (isPersistRole(client, member.guild.id, role.roleId)) {
+		if (await isPersistRole(client, member.guild.id, role.roleId)) {
 			if (member.roles.cache.has(role.roleId)) continue;
 			member.roles.add(role.roleId).catch(() => {});
 			logRoleAdded(
